@@ -5,6 +5,13 @@ Running Teensy2.0 programs on Arduino Leonardo or
 Finally got USB-MIDI to run easily on Arduino Leonardo inside Arduino-IDE
 -------------------------------------------------------------------------
 
+Hi there! Ladyada here! This is a fork of the really awesome TeeOnArdu written by Georg Werner. 
+I have made a few minor adjustments to make this add-on Flora compatible and also not require a new bootloader.
+
+It's currently in beta. Only MIDI works at all - not supported or tested beyond like "hey midiOx didnt crash!"
+
+====
+
 In workshops and classes i teach electronics and programming for artistic purposes (building instruments, controllers and installations). I mostly use open source technology because i think it fits the idea of looking into things to understand them and it thrives on the exchange of ideas.
 
 Why USB_MIDI?
@@ -26,17 +33,15 @@ After trying different routes to include USB MIDI into Leonardo i decided to cre
 There were two stumble stones:
 
 1.    Teensy and Leonardo have a different board layout so the pin number assignment is different. I changed that in pins_arduino.h/pins_teensy.c & core_pins.h - this is not well tested but seems to work (alpha)
-2.    there is a bug in the bootloader of the Leonardo (called Caterina) which prevents the execution of the Teensy code - it hangs right after the bootloader timed out. I found the solution for that in the [AVRFreaks forum](http://www.avrfreaks.net/index.php?name=PNphpBB2&file=viewtopic&t=123862) and changed the bootloader accordingly. It's included in TeeOnArdu>bootloaders>caterina. You have to burn it to your Leonardo to use TeeOnArdu. (you can use another Arduino to do it - look at [ArduinoISP](http://arduino.cc/en/Tutorial/ArduinoISP))
+2.    there is a bug in the bootloader of the Leonardo (called Caterina) which prevents the execution of the Teensy code - it hangs right after the bootloader timed out. I found the solution for that in the [AVRFreaks forum](http://www.avrfreaks.net/index.php?name=PNphpBB2&file=viewtopic&t=123862) and changed the bootloader accordingly. It's included in TeeOnArdu>bootloaders>caterina. You have to burn it to your Leonardo to use TeeOnArdu. (you can use another Arduino to do it - look at [ArduinoISP](http://arduino.cc/en/Tutorial/ArduinoISP))  (I fixed this, no new bootloader required! --ladyada)
 
 How to use it
 -------------
 
 *	Unzip the TeeOnArdu.zip and copy its contents either to the Arduino>hardware folder or to a folder called "hardware" inside your sktech folder.
 *	When you start Arduino the next time there will be a new entry under Tools>Board>"TeeOnArdu". (just like the [ATTiny cores](http://code.google.com/p/arduino-tiny/source/browse/README)) Select it.
-*	If you haven't already - Burn the bootloader.
-	Plug your Leonardo with the new bootloader to the USB Port.
 *	Select Tools>USB Type>MIDI.
-*	Copy the USB-MIDI example code from Teensy http://www.pjrc.com/teensy/td_midi.htmlt to the Arduino IDE and upload it.
+*	Copy the USB-MIDI example code from Teensy http://www.pjrc.com/teensy/td_midi.html to the Arduino IDE and upload it.
 *	Your Leonardo is now a fully standard complient USB-MIDI device. No need to install drivers in any OS. But because of that there is also no serial port USB-CDC anymore. Don't worry it's still inside the bootloader.
 *	To upload new sketches you just have to press the reset button each time you hit the upload button. Like in the old days of the first Arduino generations :)
 *	If you decide to use your Leonardo as Leonardo again just select it under Tools>Board>Leonardo and upload an Arduino sketch like Blink File>Examples>Basics>Digital>Blink. The first time you have to press the reset button but after that your Leonardo behaves like out of the box.
