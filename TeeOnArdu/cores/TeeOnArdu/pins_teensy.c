@@ -45,8 +45,10 @@
 void _init_Teensyduino_internal_(void)
 {
 	cli();
-	CLKPR = 0x80;
-	CLKPR = CPU_PRESCALER;
+
+	// We don't actually pre-scale here! Flora clocks native 8mhz
+//	CLKPR = 0x80;
+//	CLKPR = CPU_PRESCALER;
 	// timer 0, fast pwm mode
 	TCCR0A = (1<<WGM01) | (1<<WGM00);
 	TCCR0B = (1<<CS01) | (1<<CS00);		// div 64 prescaler

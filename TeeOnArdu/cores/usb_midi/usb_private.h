@@ -13,8 +13,9 @@ extern "C"{
  *
  **************************************************************************/
 
-#define VENDOR_ID               0x16C0
-#define PRODUCT_ID              0x0485
+#define VENDOR_ID               USB_VID  // use my VID
+//#define VENDOR_ID               0x16C0
+#define PRODUCT_ID              0x0485   // but whatever the prodid
 #define TRANSMIT_FLUSH_TIMEOUT  4   /* in milliseconds */
 #define TRANSMIT_TIMEOUT        25   /* in milliseconds */
 
@@ -44,7 +45,12 @@ extern "C"{
 // computer unless the vendor or product ID numbers change, or the
 // "bcdDevice" revision code is increased.
 
-#define STR_PRODUCT             L"Teensy MIDI"
+#if (USB_VID == 0x239A) &&  (USB_PID == 0x8004)
+  #define STR_PRODUCT             L"Flora MIDI"
+#else
+  #define STR_PRODUCT             L"TeeOnArdu MIDI"
+#endif
+
 #define ENDPOINT0_SIZE          64
 
 #define DEBUG_INTERFACE		1

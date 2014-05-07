@@ -56,7 +56,11 @@ extern "C"{
 #define USB_FREEZE() (USBCON = ((1<<USBE)|(1<<FRZCLK)))
 #elif defined(__AVR_ATmega32U4__)
 #define HW_CONFIG() (UHWCON = 0x01)
-#define PLL_CONFIG() (PLLCSR = 0x12)
+ #if F_CPU == 16000000UL
+  #define PLL_CONFIG() (PLLCSR = 0x12)						// Need 16 MHz xtal
+ #elif F_CPU == 8000000UL
+  #define PLL_CONFIG() (PLLCSR = 0x02)						// Need 8 MHz xtal
+ #endif
 #define USB_CONFIG() (USBCON = ((1<<USBE)|(1<<OTGPADE)))
 #define USB_FREEZE() (USBCON = ((1<<USBE)|(1<<FRZCLK)))
 #elif defined(__AVR_AT90USB646__)

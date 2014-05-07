@@ -32,21 +32,23 @@
 
 #include "wiring.h"
 
+// For TeeOnArdu we aren't going to use the prescaler!
+// (Flora is clocked natively @ 8mhz)
 #if F_CPU == 16000000L
 #define ADC_PRESCALER 0x07
-#define CPU_PRESCALER 0x00
+//#define CPU_PRESCALER 0x00
 #elif F_CPU == 8000000L
 #define ADC_PRESCALER 0x06
-#define CPU_PRESCALER 0x01
+//#define CPU_PRESCALER 0x01
 #elif F_CPU == 4000000L
 #define ADC_PRESCALER 0x05
-#define CPU_PRESCALER 0x02
+//#define CPU_PRESCALER 0x02
 #elif F_CPU == 2000000L
 #define ADC_PRESCALER 0x04
-#define CPU_PRESCALER 0x03
+//#define CPU_PRESCALER 0x03
 #elif F_CPU == 1000000L
 #define ADC_PRESCALER 0x03
-#define CPU_PRESCALER 0x04
+//#define CPU_PRESCALER 0x04
 #else
 #error "Teensyduino only supports 16, 8, 4, 2, 1 MHz.  Please edit boards.txt"
 #endif
