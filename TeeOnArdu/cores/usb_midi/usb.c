@@ -24,7 +24,7 @@
 
 #include "usb_common.h"
 #include "usb_private.h"
-
+#include <util/delay.h>
 
 
 /**************************************************************************
@@ -336,6 +336,10 @@ void usb_init(void)
 {
 	uint8_t u;
 
+	// turn off OTG pad
+	//USBCON &= ~(1 << OTGPADE);
+	usb_shutdown();
+	_delay_ms(100);
 	u = USBCON;
 	if ((u & (1<<USBE)) && !(u & (1<<FRZCLK))) return;
 	HW_CONFIG();
