@@ -144,12 +144,14 @@ void _analogWrite(uint8_t pin, int val)
 #if defined(__AVR_ATmega32U4__)
 uint8_t w_analog_reference = 0x40;
 
-// changed for Leonardo boards TODO: not tested 
+// changed for Leonardo boards & Flora
 
 static const uint8_t PROGMEM adc_mapping[] = {
-// 0, 1, 4, 5, 6, 7, 13, 12, 11, 10, 9, 8
-//   0, 1, 4, 5, 6, 7, 13, 12, 11, 10, 9, 8, 10, 11, 12, 13, 7, 6, 5, 4, 1, 0, 8  // Teensyduino
-     7, 6, 5, 4, 1, 0, 8, 10, 11, 12, 13, 9, 10, 11, 12, 13, 0, 1, 4, 5, 6, 7, 8 
+     7, 6, 5, 4, 1, 0,   // 0 thru 5 -> "A0" to "A5"
+     8, 10, 11, 12, 13, 9,    // 6 thru 11 -> "A6 thru "A11"
+     255, 255, 255, 255, 255, 255,  // 12 -> 17 'unused' 
+     7, 6, 5, 4, 1, 0,   // 18 thru 23 -> "A0" thru "A5" (#defines)
+     8, 10, 11, 12, 13, 9  // 24 thru 29 -> "A6 thru "A11"
 };
 
 int analogRead(uint8_t pin)
@@ -158,6 +160,7 @@ int analogRead(uint8_t pin)
 
 	if (pin >= sizeof(adc_mapping)) return 0;
 	adc = pgm_read_byte(adc_mapping + pin);
+	if (adc == 255) return 0;
 	if (adc < 8) {
 		DIDR0 |= (1 << adc);
 		//DDRF &= ~(1 << adc);
