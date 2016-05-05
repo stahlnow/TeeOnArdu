@@ -47,6 +47,8 @@ extern "C"{
 
 #if (USB_VID == 0x239A) &&  (USB_PID == 0x8004)
   #define STR_PRODUCT             L"Flora MIDI"
+#elif (USB_VID == 0x239A) &&  (USB_PID == 0x8011)
+  #define STR_PRODUCT             L"Circuit Play MIDI"
 #else
   #define STR_PRODUCT             L"TeeOnArdu MIDI"
 #endif
