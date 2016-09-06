@@ -47,31 +47,55 @@
 #define CORE_NUM_ANALOG		12
 #define CORE_NUM_PWM		7
 #define CORE_NUM_INTERRUPT	4
-#define PIN_B0		17 //0
-#define PIN_B1		15 //1
-#define PIN_B2		16 //2
-#define PIN_B3		14 //3
-#define PIN_B7		11 //4
-#define PIN_D0		3 //5
-#define PIN_D1		2 //6
-#define PIN_D2		0 //7
-#define PIN_D3		1 //8
-#define PIN_C6		5 //9
-#define PIN_C7		13 //10
-#define PIN_D6		12 //11
-#define PIN_D7		6 //12
-#define PIN_B4		8 //13
-#define PIN_B5		9 //14
-#define PIN_B6		10 //15
-#define PIN_F7		18 //16
-#define PIN_F6		19 //17
-#define PIN_F5		20 //18
-#define PIN_F4		21 //19
-#define PIN_F1		22 //20
-#define PIN_F0		23 //21
-#define PIN_D4		4 //22
+#define PIN_B0		17 
+//0
+#define PIN_B1		15
+ //1
+#define PIN_B2		16
+ //2
+#define PIN_B3		14
+ //3
+#define PIN_B7		11
+ //4
+#define PIN_D0		3 
+//5
+#define PIN_D1		2
+ //6
+#define PIN_D2		0
+ //7
+#define PIN_D3		1
+ //8
+#define PIN_C6		5
+ //9
+#define PIN_C7		13
+ //10
+#define PIN_D6		12 
+//11
+#define PIN_D7		6
+ //12
+#define PIN_B4		8 
+//13
+#define PIN_B5		9
+ //14
+#define PIN_B6		10
+ //15
+#define PIN_F7		18
+ //16
+#define PIN_F6		19
+ //17
+#define PIN_F5		20
+ //18
+#define PIN_F4		21
+ //19
+#define PIN_F1		22
+ //20
+#define PIN_F0		23
+ //21
+#define PIN_D4		4
+ //22
 //#define PIN_D5		23
-#define PIN_E6		7 //24
+#define PIN_E6		7
+ //24
 #define CORE_PIN0_BIT		2 //0
 #define CORE_PIN1_BIT		3 //1
 #define CORE_PIN2_BIT		1 //2

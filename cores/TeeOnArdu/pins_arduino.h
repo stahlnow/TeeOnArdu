@@ -68,6 +68,15 @@ extern const uint8_t PROGMEM digital_pin_table_PGM[];
 	(((p) >= 0 && (p) <= 3) ? (p) : (((p) >= 13 && (p) <= 15) ? (p) - 9 : 7))
 
 
+//	__AVR_ATmega32U4__ has an unusual mapping of pins to channels
+extern const uint8_t PROGMEM analog_pin_to_channel_PGM[];
+#define analogPinToChannel(P)  ( pgm_read_byte( analog_pin_to_channel_PGM + (P) ) )
+
+#define digitalPinHasPWM(p) ((p) == 3 || (p) == 5 || (p) == 6 || (p) == 9 || (p) == 10 || (p) == 11 || (p) == 13)
+
+#define digitalPinToInterrupt(p) ((p) == 0 ? 2 : ((p) == 1 ? 3 : ((p) == 2 ? 1 : ((p) == 3 ? 0 : ((p) == 7 ? 4 : NOT_AN_INTERRUPT)))))
+
+
 #endif
 
 #define NOT_ON_TIMER 0
