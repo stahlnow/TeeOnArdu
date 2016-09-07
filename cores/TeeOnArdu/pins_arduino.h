@@ -33,7 +33,7 @@ const static uint8_t SDA  = CORE_SDA0_PIN;
 const static uint8_t SCL  = CORE_SCL0_PIN;
 #endif
 
-#define NUM_DIGITAL_PINS                CORE_NUM_TOTAL_PINS
+#define NUM_DIGITAL_PINS                31
 #define NUM_ANALOG_INPUTS               CORE_NUM_ANALOG
 
 
