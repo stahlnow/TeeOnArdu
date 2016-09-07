@@ -1182,7 +1182,7 @@ void _digitalRead(void)
 		"subi	r30, lo8(-(pm(_digitalRead_TABLE)))"		"\n\t"
 		"sbci	r31, hi8(-(pm(_digitalRead_TABLE)))"		"\n\t"
 		"ijmp"							"\n"
-		#if CORE_NUM_TOTAL_PINS > 25
+		#if CORE_NUM_TOTAL_PINS > 31
 		"L%=2:"							"\n\t"
 		"subi	r30, lo8(-(pm(_digitalRead_TABLE2 - 248)))"	"\n\t"
 		"sbci	r31, hi8(-(pm(_digitalRead_TABLE2 - 248)))"	"\n\t"
@@ -1393,7 +1393,7 @@ void _digitalRead_true2(void)
 	);
 }
 
-#if CORE_NUM_TOTAL_PINS > 25
+#if CORE_NUM_TOTAL_PINS > 31
 void _digitalRead_TABLE2(void)
 {
 	asm volatile (
@@ -1517,6 +1517,8 @@ const uint8_t PROGMEM digital_pin_table_PGM[] = {
 	CORE_PIN28_BITMASK,	(int)&CORE_PIN28_PINREG,
 	CORE_PIN29_BITMASK,	(int)&CORE_PIN29_PINREG,
 	CORE_PIN30_BITMASK,	(int)&CORE_PIN30_PINREG,
+	#endif
+	#if CORE_NUM_TOTAL_PINS > 31
 	CORE_PIN31_BITMASK,	(int)&CORE_PIN31_PINREG,
 	CORE_PIN32_BITMASK,	(int)&CORE_PIN32_PINREG,
 	CORE_PIN33_BITMASK,	(int)&CORE_PIN33_PINREG,
