@@ -27,6 +27,20 @@
 #include "pins_arduino.h"
 #include "core_pins.h"
 
+const uint8_t PROGMEM analog_pin_to_channel_PGM[12] = {
+	7,	// A0				PF7					ADC7
+	6,	// A1				PF6					ADC6	
+	5,	// A2				PF5					ADC5	
+	4,	// A3				PF4					ADC4
+	1,	// A4				PF1					ADC1	
+	0,	// A5				PF0					ADC0	
+	8,	// A6		D4		PD4					ADC8
+	10,	// A7		D6		PD7					ADC10
+	11,	// A8		D8		PB4					ADC11
+	12,	// A9		D9		PB5					ADC12
+	13,	// A10		D10		PB6					ADC13
+	9	// A11		D12		PD6					ADC9
+};
 
 #define PULSEIN_CYCLES_PER_LOOP  21
 #define PULSEIN_CYCLES_LATENCY   11
